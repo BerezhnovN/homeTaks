@@ -23,15 +23,6 @@ arrMap.forEach((element, key) => {
 
 console.log("Task 3");
 
-interface IFlat {
-  square: string;
-  statusOfPrivatization: string;
-  numberOfOwners: string;
-  street: string;
-}
-
-console.log("Task 3");
-
 function getDecision(array: string[]): boolean {
   let [square, statusOfPrivatization, numberOfOwners, street] = array;
   for (let i = 0; i < array.length; i++) {
