@@ -8,7 +8,7 @@ console.log(arrMap);
 
 console.log("Task 2");
 
-arrMap.forEach((element, key) => {
+arrMap.forEach((_, key) => {
   if (key % 3 === 0 && key % 5 === 0) {
     console.log(`Число ${key}`);
     console.log("I can believe in that");
