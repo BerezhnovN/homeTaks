@@ -18,22 +18,27 @@ arrMap.forEach((element, key) => {
   } else if (key % 5 === 0) {
     console.log(`Число ${key}`);
     console.log("Oops, here is 5");
+  } else {
+    console.log(key);
   }
 });
 
 console.log("Task 3");
 
 function getDecision(array: string[]): boolean {
-  let [square, statusOfPrivatization, numberOfOwners, street] = array;
+  let [square, , , street] = array;
+  let numSquare = Number(square);
+  let decision: boolean;
   for (let i = 0; i < array.length; i++) {
-    if (Number(square) >= 56) {
-      return true;
-    } else if (Number(square) <= 40 && street == "Ленина") {
-      return true;
+    if (numSquare >= 56) {
+        decision = true;
+    } else if (numSquare <= 40 && street == "Ленина") {
+        decision = true;
     } else {
-      return false;
+        decision = false;
     }
   }
+  return decision;
 }
 
 let flat = [
