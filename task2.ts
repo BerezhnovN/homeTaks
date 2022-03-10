@@ -28,14 +28,14 @@ console.log("Task 3");
 function getDecision(array: string[]): boolean {
   let [square, , , street] = array;
   let numSquare = Number(square);
-  let decision: boolean;
+  let decision: boolean = false;
   for (let i = 0; i < array.length; i++) {
     if (numSquare >= 56) {
-        decision = true;
+      decision = true;
     } else if (numSquare <= 40 && street == "Ленина") {
-        decision = true;
+      decision = true;
     } else {
-        decision = false;
+      decision = false;
     }
   }
   return decision;
