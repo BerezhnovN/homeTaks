@@ -17,6 +17,8 @@ import { MessagesComponent } from './messages/messages.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatButtonModule} from '@angular/material/button';
 import {MatIconModule} from '@angular/material/icon';
+import { FensecasePipe } from './fensecase.pipe';
+import {RegistrationComponent} from './sign-in/registration/registration.component'
 
 @NgModule({
   imports: [
@@ -39,7 +41,9 @@ import {MatIconModule} from '@angular/material/icon';
     HeroesComponent,
     HeroDetailComponent,
     MessagesComponent,
-    HeroSearchComponent
+    HeroSearchComponent,
+    FensecasePipe,
+    RegistrationComponent,
   ],
   bootstrap: [ AppComponent ]
 })
