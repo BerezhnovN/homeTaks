@@ -15,10 +15,11 @@ import { HeroesComponent } from './heroes/heroes.component';
 import { HeroSearchComponent } from './hero-search/hero-search.component';
 import { MessagesComponent } from './messages/messages.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import {MatButtonModule} from '@angular/material/button';
-import {MatIconModule} from '@angular/material/icon';
+import { MatButtonModule } from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon';
 import { FensecasePipe } from './fensecase.pipe';
-import {RegistrationComponent} from './sign-in/registration/registration.component'
+import { RegistrationComponent } from './sign-in/registration/registration.component';
+import { BookModule } from './book/book.module';
 
 @NgModule({
   imports: [
@@ -28,12 +29,13 @@ import {RegistrationComponent} from './sign-in/registration/registration.compone
     HttpClientModule,
     MatButtonModule,
     MatIconModule,
+    BookModule,
 
-    HttpClientInMemoryWebApiModule.forRoot(
-      InMemoryDataService, { dataEncapsulation: false }
-    ),
+    HttpClientInMemoryWebApiModule.forRoot(InMemoryDataService, {
+      dataEncapsulation: false,
+    }),
 
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
   ],
   declarations: [
     AppComponent,
@@ -44,7 +46,8 @@ import {RegistrationComponent} from './sign-in/registration/registration.compone
     HeroSearchComponent,
     FensecasePipe,
     RegistrationComponent,
+
   ],
-  bootstrap: [ AppComponent ]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
