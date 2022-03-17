@@ -1,0 +1,22 @@
+.window {
+	width: 843px;
+	margin: 0 auto 24px;
+}
+
+.paginator {
+	text-align: center;
+}
+
+.paginator button {
+	margin: 0 2px;
+}
+
+.active {
+	background-color: #8F07CF;
+	color: white;
+}
+
+.notactive {
+	background-color: #9007cf00;
+	color: black;
+}
