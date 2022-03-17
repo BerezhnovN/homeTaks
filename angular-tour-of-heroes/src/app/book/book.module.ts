@@ -26,14 +26,7 @@ import { MatButtonModule } from '@angular/material/button';
   ],
   imports: [CommonModule, BookRoutingModule, MatDividerModule, MatButtonModule],
   exports: [
-    HeaderComponent,
-    FirstPageComponent,
-    SecondPageComponent,
-    ThirdPageComponent,
-    FourthPageComponent,
-    FifthPageComponent,
-    PaginatorComponent,
-    PageComponent,
+    PaginatorComponent,HeaderComponent,PageComponent
   ],
 })
 export class BookModule {}
