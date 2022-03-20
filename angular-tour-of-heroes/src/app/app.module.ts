@@ -21,6 +21,7 @@ import { FensecasePipe } from './fensecase.pipe';
 import { RegistrationComponent } from './sign-in/registration/registration.component';
 import { BookModule } from './book/book.module';
 
+
 @NgModule({
   imports: [
     BrowserModule,

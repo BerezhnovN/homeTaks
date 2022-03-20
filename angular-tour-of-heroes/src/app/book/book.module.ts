@@ -12,6 +12,9 @@ import { MatDividerModule } from '@angular/material/divider';
 import { PaginatorComponent } from './paginator/paginator.component';
 import { PageComponent } from './page/page.component';
 import { MatButtonModule } from '@angular/material/button';
+import { TableBooksComponent } from './table-books/table-books.component';
+import { MatTableModule } from '@angular/material/table';
+import { MatCardModule } from '@angular/material/card';
 
 @NgModule({
   declarations: [
@@ -23,10 +26,16 @@ import { MatButtonModule } from '@angular/material/button';
     FifthPageComponent,
     PaginatorComponent,
     PageComponent,
+    TableBooksComponent,
   ],
-  imports: [CommonModule, BookRoutingModule, MatDividerModule, MatButtonModule],
-  exports: [
-    PaginatorComponent,HeaderComponent,PageComponent
+  imports: [
+    CommonModule,
+    BookRoutingModule,
+    MatDividerModule,
+    MatButtonModule,
+    MatTableModule,
+    MatCardModule,
   ],
+  exports: [PaginatorComponent, HeaderComponent, PageComponent],
 })
 export class BookModule {}

@@ -5,7 +5,7 @@
 
 .paginator {
   position: absolute;
-  top: 600px;
+  top: 650px;
   left:650px;
 	text-align: center;
 }
@@ -22,4 +22,8 @@
 .notactive {
 	background-color: #9007cf00;
 	color: black;
+}
+
+.table{
+  margin-left: 40px;
 }
