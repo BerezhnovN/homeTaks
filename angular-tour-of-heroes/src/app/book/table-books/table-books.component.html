@@ -23,5 +23,6 @@
 		<tr mat-row *matRowDef="let row; columns: displayedColumns;" (click)="rowClick(row)"></tr>
 		<tr mat-footer-row *matFooterRowDef="displayedColumns"></tr>
 	</table>
-	<mat-card *ngIf="description" class="card-class"> {{ description }} </mat-card>
+
+	<mat-card *ngIf="description" class="card-class" style="margin-top: 20px"> {{ description }} </mat-card>
 </div>

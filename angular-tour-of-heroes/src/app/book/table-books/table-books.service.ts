@@ -9,8 +9,8 @@ import { FirstRequest } from './table-books';
 })
 export class TableBooksService {
 
-  FirstUrl: string = 'api/FirstRequest';
-  SecondUrl: string = 'api/SecondRequest';
+  FirstUrl: string = 'api/firstRequest';
+  SecondUrl: string = 'api/secondRequest';
 
   constructor(
     private http: HttpClient,
@@ -32,7 +32,7 @@ export class TableBooksService {
 
   private handleError<T>(operation = 'operation', result?: T) {
     return (error: any): Observable<T> => {
-      console.error(error);
+      console.log(error);
       this.log(`${operation} failed: ${error.message}`);
       return of(result as T);
     };

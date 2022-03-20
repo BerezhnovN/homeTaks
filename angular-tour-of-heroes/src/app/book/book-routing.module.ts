@@ -19,7 +19,7 @@ export const bookRoutes: Routes = [
       { path: '3', component: ThirdPageComponent },
       { path: '4', component: FourthPageComponent },
       { path: '5', component: FifthPageComponent },
-      { path: 'table', component: TableBooksComponent },
+      { path: '6', component: TableBooksComponent },
     ],
   },
 ];
