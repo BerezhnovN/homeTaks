@@ -20,6 +20,8 @@ import { MatIconModule } from '@angular/material/icon';
 import { FensecasePipe } from './fensecase.pipe';
 import { RegistrationComponent } from './sign-in/registration/registration.component';
 import { BookModule } from './book/book.module';
+import {ReactiveFormsModule} from '@angular/forms';
+import {MatNativeDateModule} from '@angular/material/core';
 
 
 @NgModule({
@@ -31,6 +33,8 @@ import { BookModule } from './book/book.module';
     MatButtonModule,
     MatIconModule,
     BookModule,
+    ReactiveFormsModule,
+    MatNativeDateModule,
 
     HttpClientInMemoryWebApiModule.forRoot(InMemoryDataService, {
       dataEncapsulation: false,

@@ -9,22 +9,22 @@ import { FirstRequest } from './table-books';
 })
 export class TableBooksService {
 
-  FirstUrl: string = 'api/firstRequest';
-  SecondUrl: string = 'api/secondRequest';
+  firstUrl: string = 'api/firstRequest';
+  secondUrl: string = 'api/secondRequest';
 
   constructor(
     private http: HttpClient,
     private messageService: MessageService) { }
 
   getSetOne(): Observable<FirstRequest[]> {
-    return this.http.get<FirstRequest[]>(this.FirstUrl).pipe(
+    return this.http.get<FirstRequest[]>(this.firstUrl).pipe(
         tap(_ => this.log('fetched first set data of books')),
         catchError(this.handleError<FirstRequest[]>('getSetOne', []))
     )
   }
 
   getSetTwo(): Observable<FirstRequest[]> {
-    return this.http.get<FirstRequest[]>(this.SecondUrl).pipe(
+    return this.http.get<FirstRequest[]>(this.secondUrl).pipe(
         tap(_ => this.log('fetched second set data of books')),
         catchError(this.handleError<FirstRequest[]>('getSetTwo', []))
     )
