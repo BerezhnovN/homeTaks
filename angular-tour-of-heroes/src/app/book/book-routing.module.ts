@@ -10,7 +10,7 @@ import { TableBooksComponent } from './table-books/table-books.component';
 
 export const bookRoutes: Routes = [
   {
-    path: 'book',
+    path: '',
     component: PageComponent,
     children: [
       { path: '', redirectTo: '1', pathMatch: 'full' },
@@ -18,7 +18,7 @@ export const bookRoutes: Routes = [
       { path: '2', component: SecondPageComponent },
       { path: '3', component: ThirdPageComponent },
       { path: '4', component: FourthPageComponent },
-      { path: '5', component: FifthPageComponent },
+      { path: '5', component: TableBooksComponent },
       { path: '6', component: TableBooksComponent },
     ],
   },

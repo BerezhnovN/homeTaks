@@ -20,6 +20,10 @@ import { FensecasePipe } from './fensecase.pipe';
 import { RegistrationComponent } from './sign-in/registration/registration.component';
 import { BookModule } from './book/book.module';
 import {ReactiveFormsModule} from '@angular/forms';
+import { HelloDirective } from './directives/hello.directive';
+import { TextModificatorDirective } from './directives/text-modificator.directive';
+import { TextModificatorHostDirective } from './directives/text-modificator-host.directive';
+import { RainbowTextAnimationDirective } from './directives/rainbow-text-animation.directive';
 
 @NgModule({
   imports: [
@@ -35,7 +39,6 @@ import {ReactiveFormsModule} from '@angular/forms';
     HttpClientInMemoryWebApiModule.forRoot(InMemoryDataService, {
       dataEncapsulation: false,
     }),
-
     BrowserAnimationsModule,
   ],
   declarations: [
@@ -47,6 +50,10 @@ import {ReactiveFormsModule} from '@angular/forms';
     HeroSearchComponent,
     FensecasePipe,
     RegistrationComponent,
+    HelloDirective,
+    TextModificatorDirective,
+    TextModificatorHostDirective,
+    RainbowTextAnimationDirective,
 
   ],
   bootstrap: [AppComponent],

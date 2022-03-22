@@ -1,3 +1,9 @@
-<app-header></app-header>
-<app-page></app-page>
-<app-paginator></app-paginator>
+<h1 class="headTitle">{{title}}</h1>
+<nav >
+  <a routerLink="/dashboard">Dashboard</a>
+  <a style="margin: 10px 10px 0 10px;" routerLink="/heroes">Heroes</a>
+  <a style="margin: 10px 10px 0 10px;" routerLink="/book">Book</a>
+</nav>
+
+<router-outlet></router-outlet>
+
