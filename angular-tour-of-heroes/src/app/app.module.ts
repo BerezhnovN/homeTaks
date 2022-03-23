@@ -19,11 +19,14 @@ import { MatIconModule } from '@angular/material/icon';
 import { FensecasePipe } from './fensecase.pipe';
 import { RegistrationComponent } from './sign-in/registration/registration.component';
 import { BookModule } from './book/book.module';
-import {ReactiveFormsModule} from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
 import { HelloDirective } from './directives/hello.directive';
 import { TextModificatorDirective } from './directives/text-modificator.directive';
 import { TextModificatorHostDirective } from './directives/text-modificator-host.directive';
 import { RainbowTextAnimationDirective } from './directives/rainbow-text-animation.directive';
+import { FormComponent } from './form/form.component';
+import {MatChipsModule} from '@angular/material/chips';
+import {MatFormFieldModule} from '@angular/material/form-field';
 
 @NgModule({
   imports: [
@@ -35,6 +38,8 @@ import { RainbowTextAnimationDirective } from './directives/rainbow-text-animati
     MatIconModule,
     BookModule,
     ReactiveFormsModule,
+    MatChipsModule,
+    MatFormFieldModule,
 
     HttpClientInMemoryWebApiModule.forRoot(InMemoryDataService, {
       dataEncapsulation: false,
@@ -54,7 +59,7 @@ import { RainbowTextAnimationDirective } from './directives/rainbow-text-animati
     TextModificatorDirective,
     TextModificatorHostDirective,
     RainbowTextAnimationDirective,
-
+    FormComponent,
   ],
   bootstrap: [AppComponent],
 })

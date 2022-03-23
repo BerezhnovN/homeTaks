@@ -1,0 +1,51 @@
+<form [formGroup]="userForm" (submit)="onSubmit()">
+  <label>Имя</label>
+  <input type="text" placeholder="Имя" formControlName="name" />
+  <div class="error" *ngIf="isControlInvalid('name')">
+    Имя должно состоять только из русских букв
+  </div>
+  <label>Фамилия</label>
+  <input type="text" placeholder="Фамилия" formControlName="surname" />
+  <div class="error" *ngIf="isControlInvalid('surname')">
+    Введите валидную фамилию
+  </div>
+  <label>Отчество</label>
+  <input type="text" placeholder="Отчество" formControlName="patronymic" />
+  <div class="error" *ngIf="isControlInvalid('patronymic')">
+    Введите валидное отчество
+  </div>
+  <label>Email</label>
+  <input type="text" placeholder="Email" formControlName="email" />
+  <div class="error" *ngIf="isControlInvalid('email')">
+    Введите валидный адрес почты
+  </div>
+  <mat-form-field class="example-chip-list" appearance="fill">
+    <mat-label>Умения</mat-label>
+    <mat-chip-list #chipList aria-label="Fruit selection">
+      <mat-chip *ngFor="let skill of skillsList" (removed)="remove(skill)">
+        {{ skill.name }}
+        <button matChipRemove>
+          <mat-icon>cancel</mat-icon>
+        </button>
+      </mat-chip>
+      <input
+        placeholder="New skill..."
+        [matChipInputFor]="chipList"
+        [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+        [matChipInputAddOnBlur]="addOnBlur"
+        (matChipInputTokenEnd)="add($event)"
+        type="text"
+        #skillsInput
+      />
+    </mat-chip-list>
+  </mat-form-field>
+  <div class="btn">
+    <button type="submit" (click)="onSubmit()" [disabled]="!userForm.valid">Submit</button>
+    <button (click)="Clear()">Clear</button>
+  </div>
+</form>
+<br />
+<hr />
+<div class="info" *ngIf="visible">
+  {{ info | json }}
+</div>

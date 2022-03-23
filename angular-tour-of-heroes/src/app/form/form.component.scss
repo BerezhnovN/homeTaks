@@ -1,0 +1,56 @@
+form {
+  margin: 50px auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 400px;
+  border-radius: 5%;
+  input {
+    width: 300px;
+    height: 35px;
+    border-radius: 3px;
+  }
+  input:focus-visible {
+    outline: 2px solid #0000ff;
+    border: none;
+  }
+  background-color: #77773c;
+  padding: 30px;
+}
+
+.example-chip-list {
+  width: 100%;
+}
+button {
+  margin: 10px 10px;
+  background-color: #33cc33;
+  border: 1px solid #248f24;
+  color: #fff;
+  width: 100px;
+  height: 45px;
+  border-radius: 3px;
+  font-size: 20px;
+}
+
+label{
+  margin: 10px;
+}
+
+button:hover {
+  background-color: #1aff66;
+}
+
+.error {
+  color: #0000ff;
+  margin: 10px 0;
+}
+
+.info {
+  width: 400px;
+  margin: 20px auto;
+}
+
+.example-chip-list {
+  margin-top: 40px;
+}
