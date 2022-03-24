@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { ThirdPageComponent } from './../book/third-page/third-page.component';
+import { Component, OnInit, ElementRef, ViewChild } from '@angular/core';
 import {
   FormGroup,
   FormBuilder,
@@ -21,11 +22,16 @@ export class FormComponent implements OnInit {
   visible: boolean = false;
   readonly separatorKeysCodes = [ENTER, COMMA] as const;
 
-  skillsList: ISkill[] = [
+  @ViewChild('skillInput')
+  skillInput!: ElementRef<HTMLInputElement>;
+
+  skillsList = [
     { name: 'Жизнерадостность' },
     { name: 'Заинтересованность' },
     { name: 'Интеллект' },
   ];
+
+  readonly powers: string[] = this.skillsList.map((el) => el.name);
 
   constructor(private fb: FormBuilder) {
     this.userForm = this.fb.group({
@@ -33,7 +39,7 @@ export class FormComponent implements OnInit {
       surname: ['', [Validators.required, Validators.pattern(/[А-я]/)]],
       patronymic: ['', [Validators.required, Validators.pattern(/[А-я]/)]],
       email: ['', [Validators.email]],
-      skills: this.fb.array([]),
+      skills: this.fb.array(this.powers.map((el) => new FormControl(el))),
     });
   }
 
@@ -42,50 +48,40 @@ export class FormComponent implements OnInit {
   }
 
   add(event: MatChipInputEvent): void {
-    const value = (event.value || '').trim();
+    const value = event.value.trim() || '';
 
     if (value) {
-      this.skillsList.push({name: value});
       this.skills.push(this.fb.control(value));
     }
 
     event.chipInput!.clear();
   }
 
-  remove(skill: ISkill): void {
-    const index = this.skillsList.indexOf(skill);
-
-    if (index >= 0) {
-      this.skillsList.splice(index, 1);
-      this.skills.removeAt(index);
-    }
+  remove(index: number): void {
+    this.skills.removeAt(index);
   }
+
   isControlInvalid(controlName: string): boolean {
     const control = this.userForm.controls[controlName];
-
     const result = control.invalid && control.touched;
-
     return result;
   }
-
 
   onSubmit() {
     this.info = this.userForm.value;
     this.visible = true;
   }
 
-  Clear() {
+  clear() {
     this.userForm.reset();
-    this.skills.clear()
-    this.skillsList = [{name: 'Жизнерадостность'}, {name: 'Заинтересованность'}, {name: 'Интеллект'}];
-    for (let i = 0; i < this.skillsList.length; i++) {
-      this.skills.push(this.fb.control(this.skillsList[i].name));
+    this.skills.clear();
+    this.skills.controls.splice(3);
+    while (this.skills.controls.length < 3) {
+      this.skills.push(this.fb.control(''));
     }
+    this.skills.patchValue(this.powers);
+    this.visible = false;
   }
 
   ngOnInit(): void {}
-}
-
-export interface ISkill {
-  name: string;
 }
