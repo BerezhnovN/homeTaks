@@ -15,6 +15,8 @@ import { MatButtonModule } from '@angular/material/button';
 import { TableBooksComponent } from './table-books/table-books.component';
 import { MatTableModule } from '@angular/material/table';
 import { MatCardModule } from '@angular/material/card';
+import { ModalWindowComponent } from './modal-window/modal-window.component';
+import { BookChartComponent } from './book-chart/book-chart.component';
 
 @NgModule({
   declarations: [
@@ -27,6 +29,8 @@ import { MatCardModule } from '@angular/material/card';
     PaginatorComponent,
     PageComponent,
     TableBooksComponent,
+    ModalWindowComponent,
+    BookChartComponent,
   ],
   imports: [
     CommonModule,

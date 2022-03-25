@@ -27,6 +27,7 @@ import { RainbowTextAnimationDirective } from './directives/rainbow-text-animati
 import { FormComponent } from './form/form.component';
 import {MatChipsModule} from '@angular/material/chips';
 import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatDialogModule} from '@angular/material/dialog';
 
 @NgModule({
   imports: [
@@ -40,7 +41,7 @@ import {MatFormFieldModule} from '@angular/material/form-field';
     ReactiveFormsModule,
     MatChipsModule,
     MatFormFieldModule,
-
+    MatDialogModule,
     HttpClientInMemoryWebApiModule.forRoot(InMemoryDataService, {
       dataEncapsulation: false,
     }),
