@@ -1,29 +1,28 @@
-import { SecondPageComponent } from './../second-page/second-page.component';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { catchError, combineLatest, concat, forkJoin, map, merge, Observable, of, tap } from 'rxjs';
+import { catchError, concat, Observable, of, tap } from 'rxjs';
 import { MessageService } from '../../message.service';
-import { InputData, SecondRequest } from './table-books';
+import { InputData } from './table-books';
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class TableBooksService {
-
   firstUrl: string = 'api/firstRequest';
   secondUrl: string = 'api/secondRequest';
 
   constructor(
     private http: HttpClient,
-    private messageService: MessageService) { }
+    private messageService: MessageService
+  ) {}
 
   getSets(): Observable<InputData[]> {
     return concat(
-        this.http.get<InputData[]>(this.firstUrl).pipe(),
-        this.http.get<InputData[]>(this.secondUrl).pipe()
-      ).pipe(
-        tap(_ => this.log('fetched set data of books')),
-        catchError(this.handleError<InputData[]>('getSets', []))
-      )
+      this.http.get<InputData[]>(this.firstUrl).pipe(),
+      this.http.get<InputData[]>(this.secondUrl).pipe()
+    ).pipe(
+      tap((_) => this.log('fetched set data of books')),
+      catchError(this.handleError<InputData[]>('getSets', []))
+    );
   }
 
   private handleError<T>(operation = 'operation', result?: T) {
