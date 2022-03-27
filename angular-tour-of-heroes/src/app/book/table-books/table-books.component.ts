@@ -50,6 +50,7 @@ export class TableBooksComponent implements OnInit {
   }
 
   openDialog(): void {
+    this.chartTransfer.saveData(this.table);
     const dialogRef = this.dialog.open(ModalWindowComponent, {
       disableClose: true,
     });
