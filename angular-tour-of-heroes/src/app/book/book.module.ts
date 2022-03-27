@@ -1,6 +1,6 @@
+import { BookChartComponent } from './book-chart/book-chart.component';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-
 import { BookRoutingModule } from './book-routing.module';
 import { HeaderComponent } from './header/header.component';
 import { FirstPageComponent } from './first-page/first-page.component';
@@ -16,7 +16,6 @@ import { TableBooksComponent } from './table-books/table-books.component';
 import { MatTableModule } from '@angular/material/table';
 import { MatCardModule } from '@angular/material/card';
 import { ModalWindowComponent } from './modal-window/modal-window.component';
-import { BookChartComponent } from './book-chart/book-chart.component';
 
 @NgModule({
   declarations: [

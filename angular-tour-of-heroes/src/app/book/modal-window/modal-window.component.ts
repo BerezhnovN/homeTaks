@@ -1,5 +1,6 @@
 import { Component, OnInit, Inject } from '@angular/core';
-import { MatDialog, MatDialogRef } from '@angular/material/dialog';
+import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { InputData } from '../table-books/table-books';
 
 @Component({
   selector: 'app-modal-window',
@@ -9,6 +10,7 @@ import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 export class ModalWindowComponent implements OnInit {
   constructor(
     public dialogRef: MatDialogRef<ModalWindowComponent>,
+    @Inject(MAT_DIALOG_DATA) public data: InputData
   ) {}
 
   onNoClick(): void {

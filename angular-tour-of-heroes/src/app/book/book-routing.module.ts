@@ -18,7 +18,7 @@ export const bookRoutes: Routes = [
       { path: '2', component: SecondPageComponent },
       { path: '3', component: ThirdPageComponent },
       { path: '4', component: FourthPageComponent },
-      { path: '5', component: TableBooksComponent },
+      { path: '5', component: FifthPageComponent },
       { path: '6', component: TableBooksComponent },
     ],
   },

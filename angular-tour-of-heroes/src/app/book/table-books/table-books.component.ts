@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FirstRequest, InputData, SecondRequest } from './table-books';
+import { InputData, SecondRequest } from './table-books';
 import { TableBooksService } from './table-books.service';
 import {
   animate,
@@ -8,6 +8,9 @@ import {
   transition,
   trigger,
 } from '@angular/animations';
+import { MatDialog, MatDialogRef } from '@angular/material/dialog';
+import { ModalWindowComponent } from '../modal-window/modal-window.component';
+import { ChartTransferService } from '../chart-info-transfer.service';
 
 @Component({
   selector: 'app-table-books',
@@ -26,10 +29,14 @@ import {
 })
 
 export class TableBooksComponent implements OnInit {
-  constructor(private tableBooksService: TableBooksService) {}
+  constructor(
+    private tableBooksService: TableBooksService,
+    private chartTransfer: ChartTransferService,
+    public dialog: MatDialog
+  ) {}
 
   table: InputData[] = [];
-  getData: InputData[] = [];
+  gData: InputData[] = [];
   total: number = 0;
   displayedColumns: string[] = ['id', 'title', 'qtyRelease'];
   description: string | null = null;
@@ -37,9 +44,18 @@ export class TableBooksComponent implements OnInit {
 
   getSets(): void {
     this.tableBooksService.getSets().subscribe((table) => {
-      this.getData = table;
+      this.gData = table;
       this.addStream();
     });
+  }
+
+  openDialog(): void {
+    const dialogRef = this.dialog.open(ModalWindowComponent, {
+      disableClose: true,
+    });
+    dialogRef
+      .afterClosed()
+      .subscribe((result) => console.log('The dialog was closed'));
   }
 
   addStream(): void {
@@ -47,12 +63,10 @@ export class TableBooksComponent implements OnInit {
       this.table.map((a) =>
         Object.assign(
           a,
-          this.getData.find((b: SecondRequest) => b.id == a.id)
-        )
+          this.gData.find((b: SecondRequest) => b.id == a.id)      )
       );
     } else {
-      this.table = this.getData;
-    }
+      this.table = this.gData;  }
   }
 
   calculateTotal(): void {

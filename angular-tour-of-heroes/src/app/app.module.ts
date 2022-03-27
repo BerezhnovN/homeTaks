@@ -25,9 +25,9 @@ import { TextModificatorDirective } from './directives/text-modificator.directiv
 import { TextModificatorHostDirective } from './directives/text-modificator-host.directive';
 import { RainbowTextAnimationDirective } from './directives/rainbow-text-animation.directive';
 import { FormComponent } from './form/form.component';
-import {MatChipsModule} from '@angular/material/chips';
-import {MatFormFieldModule} from '@angular/material/form-field';
-import {MatDialogModule} from '@angular/material/dialog';
+import { MatChipsModule } from '@angular/material/chips';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatDialogModule } from '@angular/material/dialog';
 
 @NgModule({
   imports: [

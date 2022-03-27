@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { MatDialog, MatDialogRef } from '@angular/material/dialog';
-import { ModalWindowComponent } from '../modal-window/modal-window.component';
+
 
 @Component({
   selector: 'app-paginator',
@@ -9,15 +8,7 @@ import { ModalWindowComponent } from '../modal-window/modal-window.component';
 })
 export class PaginatorComponent implements OnInit {
 
-  constructor(public dialog: MatDialog) {}
-  openDialog(): void {
-    const dialogRef = this.dialog.open(ModalWindowComponent, {
-      disableClose: true
-    });
-    dialogRef
-      .afterClosed()
-      .subscribe((result) => console.log('The dialog was closed'));
-  }
+  constructor() {}
 
   ngOnInit(): void {
     let url = window.location.href

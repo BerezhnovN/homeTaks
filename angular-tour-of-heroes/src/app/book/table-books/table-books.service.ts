@@ -1,8 +1,9 @@
+import { SecondPageComponent } from './../second-page/second-page.component';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { catchError, combineLatest, concat, forkJoin, map, merge, Observable, of, tap } from 'rxjs';
 import { MessageService } from '../../message.service';
-import { InputData } from './table-books';
+import { InputData, SecondRequest } from './table-books';
 @Injectable({
   providedIn: 'root'
 })
