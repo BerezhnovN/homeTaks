@@ -1,7 +1,8 @@
+import { Interceptor } from './interceptor';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
 import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { InMemoryDataService } from './in-memory-data.service';
@@ -61,6 +62,13 @@ import { MatDialogModule } from '@angular/material/dialog';
     TextModificatorHostDirective,
     RainbowTextAnimationDirective,
     FormComponent,
+  ],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      multi: true,
+      useClass: Interceptor
+    }
   ],
   bootstrap: [AppComponent],
 })
