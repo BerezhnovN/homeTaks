@@ -1,27 +1,51 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { catchError, concat, Observable, of, tap } from 'rxjs';
+import { concat, Observable, of, tap, map } from 'rxjs';
 import { MessageService } from '../../message.service';
-import { InputData } from './table-books';
+import { InputData, FirstRequest, SecondRequest } from './table-books';
 @Injectable({
   providedIn: 'root',
 })
 export class TableBooksService {
-  firstUrl: string = 'api/firstRequest';
-  secondUrl: string = 'api/secondRequest';
+  firstUrl: string = 'http://localhost:4200/api';
+  secondUrl: string = 'http://localhost:4200/api';
 
   constructor(
     private http: HttpClient,
     private messageService: MessageService
   ) {}
 
+  getBooks(): Observable<any> {
+    return this.http
+      .get(`${this.firstUrl}/books.json`)
+      .pipe(tap((resp: any) => console.info(resp, 'info')));
+  }
+
+  getFirstSet() {
+    const data = this.http.get<FirstRequest[]>(`${this.firstUrl}/books.json`, {
+      headers: { Get: 'Set 1' },
+    });
+    return data.pipe(
+      map((data: any) => {
+        return data.set1.data;
+      })
+    );
+  }
+
+  getSecondSet() {
+    const data = this.http.get<SecondRequest[]>(`${this.firstUrl}/books.json`, {
+      headers: { Get: 'Set 2' },
+    });
+    return data.pipe(
+      map((data: any) => {
+        return data.set2.data;
+      })
+    );
+  }
+
   getSets(): Observable<InputData[]> {
-    return concat(
-      this.http.get<InputData[]>(this.firstUrl).pipe(),
-      this.http.get<InputData[]>(this.secondUrl).pipe()
-    ).pipe(
-      tap((_) => this.log('fetched set data of books')),
-      catchError(this.handleError<InputData[]>('getSets', []))
+    return concat(this.getFirstSet(), this.getSecondSet()).pipe(
+      tap((_) => this.log('fetched set data of books'))
     );
   }
 

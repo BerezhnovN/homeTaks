@@ -27,7 +27,6 @@ import { ChartTransferService } from '../chart-info-transfer.service';
     ]),
   ],
 })
-
 export class TableBooksComponent implements OnInit {
   constructor(
     private tableBooksService: TableBooksService,
@@ -64,10 +63,12 @@ export class TableBooksComponent implements OnInit {
       this.table.map((a) =>
         Object.assign(
           a,
-          this.gData.find((b: SecondRequest) => b.id == a.id)      )
+          this.gData.find((b: SecondRequest) => b.id == a.id)
+        )
       );
     } else {
-      this.table = this.gData;  }
+      this.table = this.gData;
+    }
   }
 
   calculateTotal(): void {
@@ -77,6 +78,7 @@ export class TableBooksComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.tableBooksService.getBooks().subscribe();
     this.getSets();
   }
 

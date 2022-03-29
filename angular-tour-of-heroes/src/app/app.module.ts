@@ -4,8 +4,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
-import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
-import { InMemoryDataService } from './in-memory-data.service';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -43,9 +41,6 @@ import { MatDialogModule } from '@angular/material/dialog';
     MatChipsModule,
     MatFormFieldModule,
     MatDialogModule,
-    HttpClientInMemoryWebApiModule.forRoot(InMemoryDataService, {
-      dataEncapsulation: false,
-    }),
     BrowserAnimationsModule,
   ],
   declarations: [
@@ -64,11 +59,11 @@ import { MatDialogModule } from '@angular/material/dialog';
     FormComponent,
   ],
   providers: [
-    {
-      provide: HTTP_INTERCEPTORS,
-      multi: true,
-      useClass: Interceptor
-    }
+    // {
+    //   provide: HTTP_INTERCEPTORS,
+    //   multi: true,
+    //   useClass: Interceptor
+    // }
   ],
   bootstrap: [AppComponent],
 })
