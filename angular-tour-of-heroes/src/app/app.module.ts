@@ -1,3 +1,4 @@
+import { SignInModule } from './sign-in/sign-in.module';
 import { Interceptor } from './interceptor';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
@@ -14,7 +15,6 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { FensecasePipe } from './fensecase.pipe';
-import { RegistrationComponent } from './sign-in/registration/registration.component';
 import { BookModule } from './book/book.module';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HelloDirective } from './directives/hello.directive';
@@ -25,7 +25,7 @@ import { FormComponent } from './form/form.component';
 import { MatChipsModule } from '@angular/material/chips';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatDialogModule } from '@angular/material/dialog';
-
+import {MatInputModule} from '@angular/material/input';
 
 @NgModule({
   imports: [
@@ -41,7 +41,8 @@ import { MatDialogModule } from '@angular/material/dialog';
     MatFormFieldModule,
     MatDialogModule,
     BrowserAnimationsModule,
-
+    MatInputModule,
+    SignInModule,
   ],
   declarations: [
     AppComponent,
@@ -51,7 +52,6 @@ import { MatDialogModule } from '@angular/material/dialog';
     MessagesComponent,
     HeroSearchComponent,
     FensecasePipe,
-    RegistrationComponent,
     HelloDirective,
     TextModificatorDirective,
     TextModificatorHostDirective,

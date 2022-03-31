@@ -1,4 +1,3 @@
-import { ThirdPageComponent } from './../book/third-page/third-page.component';
 import { Component, OnInit, ElementRef, ViewChild } from '@angular/core';
 import {
   FormGroup,
