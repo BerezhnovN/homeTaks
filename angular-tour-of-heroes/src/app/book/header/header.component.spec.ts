@@ -1,6 +1,6 @@
 import {HeaderComponent} from "./header.component";
 
-describe('Тест Чарт компонента', () => {
+describe('Тест HEADER компонента', () => {
   let header: HeaderComponent;
 
   beforeEach(() => {

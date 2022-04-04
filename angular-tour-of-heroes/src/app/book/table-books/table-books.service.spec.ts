@@ -25,12 +25,12 @@ describe('TableBookService', () => {
     expect(service).toBeTruthy();
   }))
 
-  it('should get books',inject(
+  it('should get books', inject(
       [HttpTestingController, TableBooksService],
       (httpMock: HttpTestingController, service: TableBooksService) => {
         const mockBooks = {
-          "qtyRelease1" : 500,
-          "qtyRelease2" : 7500,
+          "qtyRelease1": 500,
+          "qtyRelease2": 7500,
           "qtyRelease3": 9700
         }
 
