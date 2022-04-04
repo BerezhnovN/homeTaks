@@ -1,11 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import {
-  FormGroup,
-  FormBuilder,
-  Validators,
-  FormControl,
-} from '@angular/forms';
-
+import {Component, OnInit} from '@angular/core';
+import {FormBuilder, FormGroup, Validators,} from '@angular/forms';
 
 @Component({
   selector: 'app-auth',
@@ -18,12 +12,14 @@ export class AuthComponent implements OnInit {
       email: ["", [Validators.required, Validators.email]],
       password: ["", [Validators.required, Validators.minLength(4)]]
     })
-   }
-   UserAuth: FormGroup;
+  }
 
-   auth() {
-     this.UserAuth.reset();
-   }
+  UserAuth: FormGroup;
+
+  auth() {
+    this.UserAuth.reset();
+  }
+
   isControlInvalid(controlName: string): boolean {
     const control = this.UserAuth.controls[controlName];
     const result = control.invalid && control.touched;

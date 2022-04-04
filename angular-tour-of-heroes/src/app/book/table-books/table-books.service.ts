@@ -38,6 +38,7 @@ export class TableBooksService {
     });
     return data.pipe(
       map((data: any) => {
+        console.log(data)
         return data.set2.data;
       })
     );
@@ -46,6 +47,7 @@ export class TableBooksService {
   getSets(): Observable<InputData[]> {
     return concat(this.getFirstSet(), this.getSecondSet()).pipe(
       tap((_) => this.log('fetched set data of books'))
+
     );
   }
 
