@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import {HostServiceService} from "./host-service.service";
 
 @Component({
   selector: 'app-root',
@@ -7,6 +8,13 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
 title = 'Tour of Heroes';
+
+  constructor(public host: HostServiceService) {
+  }
+  a : string | null = null;
+  ngOnInit(): void {
+      this.a = this.host.url;
+  }
 
 }
 

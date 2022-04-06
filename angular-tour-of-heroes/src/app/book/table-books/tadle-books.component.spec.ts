@@ -1,13 +1,12 @@
-import { Overlay, OverlayModule } from '@angular/cdk/overlay';
-import { HttpClient } from '@angular/common/http';
-import { HttpClientTestingModule } from '@angular/common/http/testing';
-import { ComponentFixture, fakeAsync, TestBed } from '@angular/core/testing';
-import { MatDialog, MatDialogModule } from '@angular/material/dialog';
-import { RouterTestingModule } from '@angular/router/testing';
-import { AppComponent } from 'src/app/app.component';
-
-import { TableBooksComponent } from './table-books.component';
-import { TableBooksService } from './table-books.service';
+import {Overlay} from '@angular/cdk/overlay';
+import {HttpClient} from '@angular/common/http';
+import {HttpClientTestingModule} from '@angular/common/http/testing';
+import {ComponentFixture, TestBed} from '@angular/core/testing';
+import {MatDialog, MatDialogModule} from '@angular/material/dialog';
+import {RouterTestingModule} from '@angular/router/testing';
+import {AppComponent} from 'src/app/app.component';
+import {TableBooksComponent} from './table-books.component';
+import {TableBooksService} from './table-books.service';
 
 describe('TableBooksComponent', () => {
   let component: TableBooksComponent;
@@ -52,5 +51,4 @@ describe('TableBooksComponent', () => {
     component.calculateTotal();
     expect(component.calculateTotal).toHaveBeenCalled();
   })
-
 });

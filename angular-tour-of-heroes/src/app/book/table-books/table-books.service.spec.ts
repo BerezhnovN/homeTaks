@@ -50,4 +50,18 @@ describe('TableBookService', () => {
       }
     )
   );
+
+  // it('AAAAAAAAAAAAA ', inject([HttpTestingController, TableBooksService],
+  //   (httpMock: HttpTestingController, service: TableBooksService) => {
+  //     const mock = {
+  //       "title1" : "qed",
+  //       "title2" : "sdfw",
+  //       "title3" : "wfs"
+  //     }
+  //     service.getFirstSet().subscribe(data => {
+  //       expect(data[1].title).toEqual(mock.title1);
+  //       console.log(mock.title1);
+  //     })
+  //   }));
+
 })
